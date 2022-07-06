@@ -9,7 +9,7 @@ Car localizer made in PyTorch (in developement)
 </h1>
 <p style="font-size:40%;">How our project will look</p><br>
 <h2>
-<img src="repo_img/car_localizer.jpg">
+<img src="repo_img/car_localizer.jpg" width="800" height="600">
 </h2>
 
 </div>
