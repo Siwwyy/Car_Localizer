@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32616.157
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Car_Localizer", "Car_Localizer\Car_Localizer.pyproj", "{BF814FB2-411B-4BE5-A280-0C7AB925FA80}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BF814FB2-411B-4BE5-A280-0C7AB925FA80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF814FB2-411B-4BE5-A280-0C7AB925FA80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CEA9C102-AFE5-4A9A-AD96-1CE059EB57A3}
+	EndGlobalSection
+EndGlobal
