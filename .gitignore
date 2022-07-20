@@ -744,3 +744,7 @@ Thumbs.db
 
 # Vim temporary files
 .*.swp
+
+#OWN ignore
+*.sln
+*.pyproj
