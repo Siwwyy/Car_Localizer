@@ -17,4 +17,7 @@ Car localizer made in PyTorch (in developement)
 
 ## Pre Commit hook installation
 https://gdevops.gitlab.io/tuto_git/tools/pre-commit/articles/2018/2018.html
-pre-commit install
+
+After cloning the repo, type:
+
+`> pre-commit install`
