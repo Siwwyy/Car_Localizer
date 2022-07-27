@@ -3,11 +3,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 from abc import ABCMeta, abstractmethod
-from typing import Union
-
-
-TensorType = torch.tensor
-ShapeType = Union[tuple, torch.Size]
+from Config.config import TensorType, ShapeType
 
 
 class Model_Base(torch.nn.Module, metaclass=ABCMeta):
