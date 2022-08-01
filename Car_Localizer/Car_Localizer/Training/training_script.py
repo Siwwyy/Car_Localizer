@@ -13,14 +13,14 @@ from torch.utils.data import DataLoader, SubsetRandomSampler
 from sklearn.metrics import confusion_matrix
 sns.set_style('darkgrid')
 from model_vehicle_classifier import VehicleClassifier
-from custom_functions import get_mean_and_std, binary_acc
+from custom_functions import get_mean_and_std, binary_acc, get_mean_std
 # from Model import Model_First
 np.random.seed(0)
 torch.manual_seed(0)
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 print("In our project we're using =>", device)
-root_dir = "/Users/sebastiankowalczykiewicz/Car_Localizer/Car_Localizer/Car_Localizer/Training"
+root_dir = "/Car_Localizer/Car_Localizer/Training"
 print("The data are stored here =>", root_dir)
 
 #Initialize raw training dataset:
@@ -28,10 +28,10 @@ train_dataset_raw = datasets.ImageFolder(root = root_dir + "/train",
         transform = transforms.Compose([
         transforms.Resize((64, 64)),
         transforms.ToTensor()]))
-train_loader_raw = DataLoader(dataset=train_dataset_raw, shuffle=False, batch_size=8)
 
-#The mean and std metrics are required in order to accomplish an normalization of ds:
-mean_from_dataset, std_from_dataset = get_mean_and_std(train_loader_raw)
+#data_raw is used to calculate the mean and std metrics:
+train_loader_raw = DataLoader(dataset=train_dataset_raw, shuffle=False, batch_size=len(train_dataset_raw))
+data_raw = next(iter(train_loader_raw))
 
 #Initialize transformations as a dict:
 image_transforms = {
@@ -39,8 +39,8 @@ image_transforms = {
         transforms.Resize((64, 64)),
         transforms.ToTensor(),
         transforms.Normalize(
-        mean=mean_from_dataset,
-        std=std_from_dataset)
+        mean=data_raw[0].mean(),
+        std=data_raw[0].std())
     ]),
     "test": transforms.Compose([
         transforms.Resize((64, 64)),

@@ -2,11 +2,10 @@ import os
 os.environ['KMP_DUPLICATE_LIB_OK'] = 'True'
 import torch.nn as nn
 
-
 #CNN Architecture:
 class VehicleClassifier(nn.Module):
     def __init__(self):
-        super(VehicleClassifier, self).__init__()
+        super().__init__()
         self.block1 = self.conv_block(c_in=3, c_out=256, dropout=0.1, kernel_size=5, stride=1, padding=2)
         self.block2 = self.conv_block(c_in=256, c_out=128, dropout=0.1, kernel_size=3, stride=1, padding=1)
         self.block3 = self.conv_block(c_in=128, c_out=64, dropout=0.1, kernel_size=3, stride=1, padding=1)
