@@ -13,6 +13,7 @@ class Model_Base(torch.nn.Module, metaclass=ABCMeta):
         input_shape: ShapeType = (1, 3, 64, 64),
         num_classes: int = 2,
     ):
+        super().__init__()
         self.name = name
         self.input_shape = input_shape
         self.num_classes = num_classes
