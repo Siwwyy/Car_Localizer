@@ -36,7 +36,7 @@ class Model_First(Model_Base):
             nn.Conv2d(
                 in_channels=32, out_channels=1, kernel_size=1, stride=1, padding=0
             ),
-            nn.Relu(),
+            nn.ReLU(),
         )
 
         # conv4 1x1 convolution as a Fully Connected layer
@@ -44,7 +44,7 @@ class Model_First(Model_Base):
             nn.Conv2d(
                 in_channels=32, out_channels=1, kernel_size=1, stride=1, padding=0
             ),
-            nn.Relu(),
+            nn.ReLU(),
         )
 
     def forward(self, x: TensorType = None) -> TensorType:

@@ -1,6 +1,7 @@
+from __future__ import annotations
+
 import torch
 
-from __future__ import annotations
 from typing import Union
 from typing import Annotated
 
@@ -30,8 +31,8 @@ def try_gpu(gpu_idx: int = 0) -> torch.device:
     Returns
     -------
         function returns GPU on specified index if exists, if not, CPU."""
-    if torch.cuda.device_count() >= i + 1:
-        return torch.device(f"cuda:{i}")
+    if torch.cuda.device_count() >= gpu_idx + 1:
+        return torch.device(f"cuda:{gpu_idx}")
     return torch.device("cpu")
 
 
