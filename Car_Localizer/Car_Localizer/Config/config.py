@@ -28,6 +28,7 @@ def try_gpu(gpu_idx: int = 0) -> torch.device:
     ----------
     gpu_idx : int
         GPU Device idx, number of specified GPU
+
     Returns
     -------
         function returns GPU on specified index if exists, if not, CPU."""
