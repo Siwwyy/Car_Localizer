@@ -748,3 +748,6 @@ Thumbs.db
 #OWN ignore
 *.sln
 *.pyproj
+data/
+*.zip
+*.7z
