@@ -2,26 +2,25 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
+from abc import ABCMeta, abstractmethod
+from Config.config import TensorType, ShapeType
 
-class LossBase(nn.Module):
-    def __init__(self):
-        super(LossBase, self).__init__()
 
-        self.Alpha = nn.Parameter(torch.ones(1), requires_grad=True)
-        self.Beta = nn.Parameter(torch.zeros(1), requires_grad=True)
-        self.Sigma = nn.Parameter(torch.ones(1), requires_grad=True)
+class Loss_Base(torch.nn.Module, metaclass=ABCMeta):
+    def __init__(
+        self,
+        name: str = "Loss_Base",
+        input_shape: ShapeType = (1, 3, 64, 64),
+        num_classes: int = 2,
+    ):
+        super().__init__()
+        self.name = name
+        self.input_shape = input_shape
+        self.num_classes = num_classes
 
-    def my_bce_with_logits_loss(x, y):
-        loss = -1.0 * (y * F.logsigmoid(x) + (1 - y) * torch.log(1 - torch.sigmoid(x)))
-        loss = loss.mean()
-        return loss
-
-    def my_bce_with_logits_loss_stable(x, y):
-        max_val = (-x).clamp_min_(0)
-        loss = (
-            (1 - y) * x
-            + max_val
-            + torch.log(torch.exp(-max_val) + torch.exp(-x - max_val))
+    @abstractmethod
+    def forward(self, x: TensorType = None) -> TensorType:
+        assert x is None, "Input tensor X can't be None!"
+        raise NotImplementedError(
+            "Child class have to implement {} method".format(self.forward.__name__)
         )
-        loss = loss.mean()
-        return loss

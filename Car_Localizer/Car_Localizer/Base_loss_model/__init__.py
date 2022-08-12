@@ -1,1 +1,2 @@
-from Base_loss_model.loss_model_base import LossBase
+from Base_loss_model.loss_model_base import Loss_Base
+from Base_loss_model.loss_model_first import Loss_Model_First
