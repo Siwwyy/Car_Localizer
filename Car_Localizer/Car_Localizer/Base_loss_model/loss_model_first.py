@@ -9,12 +9,10 @@ import numpy as np
 class Loss_First(Loss_Base):
     def __init__(
         self,
-        name: str = "Loss_First",
-        input_shape: ShapeType = (1, 3, 64, 64),
-        num_classes: int = 2,
+        name: str = "Loss_MSE",
     ):
-        super().__init__(name, input_shape, num_classes)
+        super().__init__(name)
 
     def forward(self, x: TensorType = None, y_pred: TensorType = None) -> TensorType:
-        output = np.square(np.substract(x, y_pred)).mean()
+        output = ((y_pred - x) ** 2).mean()
         return output
