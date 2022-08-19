@@ -5,11 +5,32 @@ import torch.nn as nn
 
 
 class Model_First(Model_Base):
+    """
+    First and base model of our project (derives from Model_Base, look at model_base.py)
+
+    Attributes
+    ----------
+    name : str
+        name of model
+    input_shape : ShapeType (look at possible shape types in config.py file)
+        input shape of tensors
+    num_classes : int
+        number of classes in prediction
+    **kwargs : Any
+        keyword arguments (currently not used)
+
+    Methods
+    -------
+    forward(self, x: TensorType = None) -> TensorType:
+        Forward propagation's method of model
+    """
+
     def __init__(
         self,
         name: str = "Model_First",
         input_shape: ShapeType = (1, 3, 64, 64),
         num_classes: int = 2,
+        **kwargs
     ):
         super().__init__(name, input_shape, num_classes)
 
